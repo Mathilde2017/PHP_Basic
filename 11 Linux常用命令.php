@@ -8,10 +8,6 @@
 		https://www.centos.org/
 	1.3 XShell
 		http://www.xshellcn.com/
-
-
-
-
 /****
 二，linux常用命令
 ****/
@@ -139,9 +135,91 @@
 		W	可写
 		X	可执行
 	参数：文件名或目录
+
 	+	增加权限
 	-	减少权限
 	=	赋予当前权限
+
+	rwx 	所有者 u
+	r-x 	所属组 g
+	r-x 	其他人 o
+		全部 	 a
+	例：
+	cd /test/
+	ll 
+
+	chmod a-rwx index.php   所有都减去rwx权限
+	chmod a=rx index.php     所有灯赋予rx权限
+
+	第二种方法：
+	r 4
+	w 2
+	x 1
+
+	rwx     rwx     rwx 
+	421    421    421
+	  7        7        7          // 4+2+1 = 7;这是最高权限 777的由来
+	所以用数字赋予权限，是比较方便的
+	例如：
+	rwx    rx   wx
+	7       5    3
+
+	chmod 753 index.php    
+	chmod -R 644 test  表示test目录下面的文件都继承这个权限
+
+	// 2.8 文本编辑器
+	vi [参数]
+	vi	全屏幕纯文本编辑器
+	参数	文件名
+
+	快捷键：
+		i/a  	命令模式 执行写入，命令模式进入编辑模式
+		Esc	编辑模式切换到命令模式
+		/  	命令模式 搜索 （按n查找下一个）
+		:set number	命令模式 显示行数
+		:set nonumber	命令模式 取消显示行数
+		:wq	命令模式 执行保存退出
+		:w	命令模式 执行保存
+		:q	命令模式 执行退出
+
+
+/****
+三，linux安装PHP环境
+****/
+	yum [-选项] [参数] [软件名]
+	yum	软件包管理器
+
+	选项：
+	-y	对所有的提问都回答“yes”	
+
+	参数	
+	install	安装软件包
+	update	更新软件包
+	remove	删除软件包
+
+	例如：
+		yum -y install wget
+
+
+
+
+	wget [-选项] [参数]
+	wget	从指定的URL下载文件
+
+	选项：
+	-c	继续执行上次终端的任务
+	-b	进行后台的方式运行
+
+	参数	下载指定的URL地址
+
+
+
+
+
+
+
+
+
 
 
 
